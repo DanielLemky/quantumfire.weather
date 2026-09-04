@@ -3,6 +3,9 @@
 set -u
 
 status=$(timeout 4 omarchy-weather-status 2>/dev/null) || status="Weather unavailable"
+if [[ $status =~ ^(.*Wind[[:space:]]+)([^0-9[:space:]]+)([0-9].*)$ ]]; then
+  status="${BASH_REMATCH[1]}${BASH_REMATCH[2]} ${BASH_REMATCH[3]}"
+fi
 
 jq -n --arg status "$status" '{
   items: [
