@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -u
+
+status=$(timeout 4 omarchy-weather-status 2>/dev/null) || status="Weather unavailable"
+
+jq -n --arg status "$status" '{
+  items: [
+    {
+      id: "current-weather",
+      label: $status,
+      description: "Open the Omarchy weather forecast",
+      icon: "",
+      command: ["omarchy-notification-weather"],
+      closeOnSuccess: true,
+      actions: [
+        {
+          id: "set-location",
+          label: "Set location",
+          icon: "",
+          input: {
+            prompt: "City or location",
+            maxLength: 120,
+            command: ["omarchy-weather-location", "--set", "{input}"]
+          }
+        },
+        {
+          id: "clear-location",
+          label: "Use automatic location",
+          icon: "󰑐",
+          confirm: "Clear the saved weather location?",
+          confirmLabel: "Use automatic location",
+          command: ["omarchy-weather-location", "--clear"]
+        }
+      ]
+    }
+  ]
+}'

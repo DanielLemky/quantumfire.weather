@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "quantumfire.weather",
+  "capability": "quantumfire.weather",
+  "mode": "menu",
+  "label": "Weather",
+  "prefixes": [
+    "weather"
+  ],
+  "icon": "",
+  "iconFont": "omarchy",
+  "description": "View the forecast and set the weather location",
+  "requires": [
+    "jq",
+    "omarchy-notification-weather",
+    "omarchy-weather-location",
+    "omarchy-weather-status",
+    "timeout"
+  ],
+  "command": [
+    "{extensionDir}/bin/weather-menu"
+  ]
+}

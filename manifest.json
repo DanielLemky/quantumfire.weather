@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "quantumfire.weather",
+  "name": "Weather",
+  "version": "0.1.0",
+  "author": "quantumfire",
+  "description": "Weather for Omalaunch",
+  "kinds": [
+    "extension"
+  ],
+  "entryPoints": {},
+  "omalaunch": {
+    "extensions": [
+      "omalaunch.json"
+    ]
+  }
+}
