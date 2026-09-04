@@ -2,6 +2,8 @@
 
 An Omalaunch extension for the weather tools included with Omarchy.
 
+![Weather extension in Omalaunch](assets/weather.png)
+
 ## Features
 
 - Show the current Omarchy weather status.
